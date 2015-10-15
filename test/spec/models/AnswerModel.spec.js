@@ -3,8 +3,8 @@
 (function () {
   'use strict';
 
-  describe('Give it some context', function () {
-    describe('maybe a bit more context here', function () {
+  describe('AnswerModelTest', function () {
+    describe('Initialize', function () {
       it('should run here few assertions', function () {
 
       });

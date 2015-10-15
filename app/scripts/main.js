@@ -17,7 +17,34 @@ require.config({
 });
 
 require([
-    'backbone'
-], function (Backbone) {
+    'backbone',
+    'views/AnswersCollectionView',
+    'collections/AnswersCollection'
+
+
+], function (Backbone, AnswersCollectionView, AnswersCollection) {
+
+    window.Answers = {
+        Collections: {
+            answers: new AnswersCollection()
+        },
+        Views: {},
+        init: function() {
+            new AnswersCollectionView({
+                collection: this.Collections.answers,
+                el: '#answers-list'
+            });
+
+            this.Collections.answers.fetch();
+        }
+    };
+
+    $(document).ready(function () {
+        window.Answers.init();
+    });
+
+
     Backbone.history.start();
 });
+
+

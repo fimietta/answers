@@ -46,7 +46,7 @@ module.exports = function (grunt) {
                     '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
                     '<%= yeoman.app %>/scripts/templates/*.{ejs,mustache,hbs}',
-                    'test/spec/**/*.js'
+                    'test/**/**.spec.js'
                 ]
             },
             jst: {
@@ -56,7 +56,7 @@ module.exports = function (grunt) {
                 tasks: ['jst']
             },
             test: {
-                files: ['<%= yeoman.app %>/scripts/{,*/}*.js', 'test/spec/**/*.js'],
+                files: ['<%= yeoman.app %>/scripts/{,*/}*.js', 'test/**/**.spec.js'],
                 tasks: ['test:true']
             }
         },
@@ -79,7 +79,7 @@ module.exports = function (grunt) {
             },
             test: {
                 options: {
-                    port: 9001,
+                    port: 9002,
                     middleware: function (connect) {
                         return [
                             lrSnippet,
