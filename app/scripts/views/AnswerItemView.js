@@ -9,11 +9,7 @@ define(function (require) {
     var AnswerItemView = Backbone.View.extend({
         template: JST['app/scripts/templates/AnswerItemView.ejs'],
 
-        tagName: 'div',
-
-        id: '',
-
-        className: '',
+        className: 'answer-item-view',
 
         events: {},
 

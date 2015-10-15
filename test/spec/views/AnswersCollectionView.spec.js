@@ -6,9 +6,13 @@
 
   describe('AnswersCollectionView Test', function () {
     describe('Rendering', function () {
-      it('should list the answers', function () {
+        it('should show the most searched answers', function () {
 
-      });
+        });
+
+        it('should show the newest answers', function() {
+
+        });
     });
   });
 })();

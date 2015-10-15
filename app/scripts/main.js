@@ -19,10 +19,9 @@ require.config({
 require([
     'backbone',
     'views/AnswersCollectionView',
-    'collections/AnswersCollection'
-
-
-], function (Backbone, AnswersCollectionView, AnswersCollection) {
+    'collections/AnswersCollection',
+    'views/DashboardView'
+], function (Backbone, AnswersCollectionView, AnswersCollection, DashboardView) {
 
     window.Answers = {
         Collections: {
@@ -30,10 +29,17 @@ require([
         },
         Views: {},
         init: function() {
-            new AnswersCollectionView({
+
+            this.Views.dashboard = new DashboardView({
+                el: '#dashboard'
+            });
+
+            this.Views.answersCollectionView = new AnswersCollectionView({
                 collection: this.Collections.answers,
                 el: '#answers-list'
             });
+
+            this.Views.dashboard.render();
 
             this.Collections.answers.fetch();
         }

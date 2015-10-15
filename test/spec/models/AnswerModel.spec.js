@@ -1,13 +1,15 @@
 /* global describe, it */
 
-(function () {
-  'use strict';
+define(function (require) {
+    'use strict';
 
-  describe('AnswerModelTest', function () {
-    describe('Initialize', function () {
-      it('should run here few assertions', function () {
+    var AnswerModel = require('models/AnswerModel');
 
-      });
+    describe('AnswerModelTest', function () {
+        describe('Initialize', function () {
+            it('should run here few assertions', function () {
+
+            });
+        });
     });
-  });
-})();
+});

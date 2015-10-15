@@ -22,7 +22,9 @@ require.config({
 var specs = [
     'spec/collections/AnswersCollection.spec.js',
     'spec/models/AnswerModel.spec.js',
-    'spec/views/AnswersCollectionView.spec.js'
+    'spec/views/AnswersCollectionView.spec.js',
+    'spec/views/MostSearchedAnswersView.spec.js',
+    'spec/views/DashboardView.spec.js'
 ];
 
 require(['require'], function (require) {

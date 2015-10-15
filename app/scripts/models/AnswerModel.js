@@ -12,6 +12,9 @@ define(function (require) {
         },
 
         defaults: {
+            'title': undefined,
+            'description': undefined,
+            'uri': undefined
         },
 
         validate: function(attrs, options) {
