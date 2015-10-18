@@ -5,7 +5,8 @@ define(function (require) {
 
     var Backbone = require('backbone'),
         JST = require('templates'),
-        MostSearchedAnswersView = require('views/MostSearchedAnswersView');
+        MostSearchedAnswersView = require('views/MostSearchedAnswersView'),
+        AnswersSearchBoxView = require('views/AnswersSearchBoxView');
 
     var DashboardView = Backbone.View.extend({
         template: JST['app/scripts/templates/DashboardView.ejs'],
@@ -13,7 +14,8 @@ define(function (require) {
         events: {},
 
         childViews:  {
-            mostSearchedAnswersView: undefined
+            mostSearchedAnswersView: undefined,
+            searchAnswersRegion: undefined
         },
 
         initialize: function () {
@@ -27,6 +29,7 @@ define(function (require) {
 
         _setupRegions: function() {
             this._loadMostSearchedAnswerRegion();
+            this._loadAnswersSearchBoxRegion();
         },
 
         _loadMostSearchedAnswerRegion: function() {
@@ -35,6 +38,14 @@ define(function (require) {
             });
 
             this.childViews.mostSearchedAnswersView.render();
+        },
+
+        _loadAnswersSearchBoxRegion: function() {
+            this.childViews.searchAnswersRegion = new AnswersSearchBoxView({
+                el: '#search-box-region'
+            });
+
+            this.childViews.searchAnswersRegion.render();
         }
 
     });

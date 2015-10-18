@@ -4,12 +4,18 @@ define(function (require) {
     'use strict';
 
     var DashboardView = require('views/DashboardView'),
-        MostSearchedAnswersView = require('views/MostSearchedAnswersView');
+        MostSearchedAnswersView = require('views/MostSearchedAnswersView'),
+        AnswersSearchBoxView = require('views/AnswersSearchBoxView');
 
     describe('DashboardView Test', function () {
 
         beforeEach(function() {
+            this.stubSetupPlugin = sinon.stub(AnswersSearchBoxView.prototype, '_setupSearchboxPlugin');
             this.dashboardView = new DashboardView();
+        });
+
+        afterEach(function() {
+            this.stubSetupPlugin.restore();
         });
 
         describe('On Render - Regions Setup', function() {
