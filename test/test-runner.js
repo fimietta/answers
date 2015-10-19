@@ -25,7 +25,8 @@ var specs = [
     'spec/views/AnswersCollectionView.spec.js',
     'spec/views/MostSearchedAnswersView.spec.js',
     'spec/views/DashboardView.spec.js',
-    'spec/views/AnswersSearchBox.spec.js'
+    'spec/views/AnswersSearchBox.spec.js',
+    'spec/views/ContentView.spec.js'
 ];
 
 require(['require'], function (require) {

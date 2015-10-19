@@ -5,7 +5,8 @@ define(function (require) {
 
     var DashboardView = require('views/DashboardView'),
         MostSearchedAnswersView = require('views/MostSearchedAnswersView'),
-        AnswersSearchBoxView = require('views/AnswersSearchBoxView');
+        AnswersSearchBoxView = require('views/AnswersSearchBoxView'),
+        ContentView = require('views/ContentView');
 
     describe('DashboardView Test', function () {
 
@@ -33,7 +34,41 @@ define(function (require) {
                 setupRegionsSpy.restore();
             });
 
-            it('should load the most searched answers region', function() {
+
+            it('should load the content region', function() {
+                // Arrange
+                var loadContentRegionSpy = sinon.spy(DashboardView.prototype, '_loadContentRegion');
+
+                // Act
+                this.dashboardView.render();
+
+                // Assert
+                expect(loadContentRegionSpy).to.have.been.called;
+                expect(this.dashboardView.childViews.contentRegion).to.be.an.instanceof(ContentView);
+
+                // Teardown
+                loadContentRegionSpy.restore();
+            });
+
+            it('should load the search region', function() {
+                // Arrange
+                var loadSearchRegionSpy = sinon.spy(DashboardView.prototype, '_loadSearchRegion');
+
+                // Act
+                this.dashboardView.render();
+
+                // Assert
+                expect(loadSearchRegionSpy).to.have.been.called;
+                expect(this.dashboardView.childViews.searchRegion).to.be.an.instanceof(AnswersSearchBoxView);
+
+                // Teardown
+                loadSearchRegionSpy.restore();
+            });
+
+
+
+
+            it.skip('should load the most searched answers region', function() {
                 // Arrange
                 var loadMostSearcheAnswerRegionSpy = sinon.spy(DashboardView.prototype, '_loadMostSearchedAnswerRegion');
 

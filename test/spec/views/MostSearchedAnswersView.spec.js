@@ -4,13 +4,13 @@ define(function (require) {
     'use strict';
 
     var MostSearchedAnswersView = require('views/MostSearchedAnswersView'),
-        AnswersCollection = require('collections/AnswersCollection'),
+        MostSearchedAnswersCollection = require('collections/MostSearchedAnswersCollection'),
         AnswerModel = require('models/AnswerModel');
 
     describe('MostSearchedAnswersView Test', function () {
 
         beforeEach(function() {
-            this.fetchSpy = sinon.spy(AnswersCollection.prototype, 'fetch');
+            this.fetchSpy = sinon.spy(MostSearchedAnswersCollection.prototype, 'fetch');
             this.mostSearchedView = new MostSearchedAnswersView();
         });
 
@@ -19,8 +19,8 @@ define(function (require) {
         });
 
         describe('Init', function() {
-            it('should should have a reference to the AnswersCollection', function() {
-                expect(this.mostSearchedView.collection).to.be.an.instanceOf(AnswersCollection);
+            it('should should have a reference to the MostAnswersCollection', function() {
+                expect(this.mostSearchedView.collection).to.be.an.instanceOf(MostSearchedAnswersCollection);
             });
 
             it('should fetch the answers collection', function() {
@@ -58,7 +58,7 @@ define(function (require) {
                 expect(item.length).to.be.equal(1);
 
             });
-            
+
         });
 
     });
