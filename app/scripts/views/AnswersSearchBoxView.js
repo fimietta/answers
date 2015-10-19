@@ -4,17 +4,43 @@ define(function (require) {
     'use strict';
 
     var Backbone = require('backbone'),
-        JST = require('templates');
+        JST = require('templates'),
+        BaseModalView = require('views/modals/BaseModalView'),
+        NewAnswerView = require('views/NewAnswerView');
 
     require('../../bower_components/select2/select2');
 
     var AnswersSearchBox = Backbone.View.extend({
         template: JST['app/scripts/templates/AnswersSearchBoxView.ejs'],
 
-        events: {},
+        events: {
+            'click #create-new-answer': '_createNewAnswer'
+        },
+
+        ui: {
+            searchBox: undefined
+        },
+
+        modal: undefined,
 
         initialize: function () {
 
+        },
+
+        _openAnswer: function() {
+            var data = this.ui.searchBox.select2('data')[0];
+            this.ui.searchBox.select2('val', '');
+            Backbone.history.navigate('/answer/' + data.id, true);
+        },
+
+        _createNewAnswer: function(e) {
+            e.preventDefault();
+
+            this.modal = new BaseModalView({
+                bodyView: new NewAnswerView()
+            });
+
+            this.modal.show();
         },
 
         _format: function (object){
@@ -23,7 +49,7 @@ define(function (require) {
 
         _setupSearchboxPlugin: function() {
 
-            $('#searchbox').select2({
+            this.ui.searchBox.select2({
                 escapeMarkup: function(m) {
                     return m;
                 },
@@ -55,10 +81,13 @@ define(function (require) {
                 }
             });
 
+            $('#searchbox').on('change', _.bind(this._openAnswer, this));
+
         },
 
         render: function () {
             this.$el.html(this.template());
+            this.ui.searchBox = this.$el.find('#searchbox');
             this._setupSearchboxPlugin();
         }
     });

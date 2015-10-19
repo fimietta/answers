@@ -2,14 +2,16 @@
     "name": "answers",
     "version": "0.0.0",
     "dependencies": {
-        "bootstrap-sass-official": "~3.2.0",
+        "sass-bootstrap": "~3.0.2",
         "jquery": "~2.1.0",
         "lodash": "~2.4.1",
         "backbone": "~1.1.0",
         "requirejs": "~2.1.10",
         "requirejs-text": "~2.0.10",
         "modernizr": "~2.7.1",
-        "select2": "~3.5.4"
+        "select2": "~3.5.4",
+        "jquery-file-upload": "~9.11.2"
     },
     "devDependencies": {}
 }
+

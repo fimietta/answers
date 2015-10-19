@@ -18,30 +18,16 @@ require.config({
 
 require([
     'backbone',
-    'views/AnswersCollectionView',
-    'collections/AnswersCollection',
-    'views/DashboardView'
-], function (Backbone, AnswersCollectionView, AnswersCollection, DashboardView) {
+    'routes/AnswersRouter'
+], function (Backbone, AnswersRouter) {
 
     window.Answers = {
-        Collections: {
-            answers: new AnswersCollection()
-        },
+        Routers: {},
+        Collections: {},
         Views: {},
         init: function() {
-
-            this.Views.dashboard = new DashboardView({
-                el: '#dashboard'
-            });
-
-            this.Views.answersCollectionView = new AnswersCollectionView({
-                collection: this.Collections.answers,
-                el: '#answers-list'
-            });
-
-            this.Views.dashboard.render();
-
-            this.Collections.answers.fetch();
+            this.Routers.answersRouter = new AnswersRouter();
+            Backbone.history.start();
         }
     };
 
@@ -49,8 +35,6 @@ require([
         window.Answers.init();
     });
 
-
-    Backbone.history.start();
 });
 
 

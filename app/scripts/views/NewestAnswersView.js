@@ -6,13 +6,12 @@ define(function (require) {
     var Backbone = require('backbone'),
         JST = require('templates'),
         _ = require('underscore'),
-        MostSearchedAnswersCollection = require('collections/MostSearchedAnswersCollection'),
+        NewAnswersCollection = require('collections/NewAnswersCollection'),
         AnswerItemView = require('views/AnswerItemView');
 
-    var MostSearchedAnswersView = Backbone.View.extend({
+    var NewestAnswersView = Backbone.View.extend({
         tagName: 'div',
-
-        template: JST['app/scripts/templates/MostSearchedAnswersView.ejs'],
+        template: JST['app/scripts/templates/NewestAnswersView.ejs'],
 
         events: {},
 
@@ -21,12 +20,14 @@ define(function (require) {
         },
 
         initialize: function () {
-            this.collection = new MostSearchedAnswersCollection();
+            this.collection = new NewAnswersCollection();
+
         },
 
-        _bindUIAndEvents: function() {
-            this.ui.list = this.$el.find('#most-searched-list');
+        _bindUI: function() {
+            this.ui.list = this.$el.find('#newest-list');
             this.collection.fetch();
+
             this.listenTo(this.collection, 'sync', this._addAnswers);
         },
 
@@ -47,9 +48,9 @@ define(function (require) {
         render: function () {
             this.$el.html(this.template());
 
-            this._bindUIAndEvents();
+            this._bindUI();
         }
     });
 
-    return MostSearchedAnswersView;
+    return NewestAnswersView;
 });

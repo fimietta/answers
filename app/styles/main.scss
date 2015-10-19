@@ -1,6 +1,6 @@
-$icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+$icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
-@import 'bootstrap-sass-official/assets/stylesheets/bootstrap.scss';
+@import '../bower_components/sass-bootstrap/lib/bootstrap.scss';
 
 .browsehappy {
     margin: 0.2em 0;
@@ -91,6 +91,8 @@ body {
 }
 
 
+
+/* SELECT2 - STYLE */
 .search-answers {
     width: 100%;
 }
@@ -98,3 +100,34 @@ body {
 .select2-container {
     width: 100%;
 }
+
+/* FILE UPLOAD - DROPZONE */
+
+#dropzone {
+    background: palegreen;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+}
+#dropzone.in {
+    width: 600px;
+    height: 200px;
+    line-height: 200px;
+    font-size: larger;
+}
+#dropzone.hover {
+    background: lawngreen;
+}
+#dropzone.fade {
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    opacity: 1;
+}
+
+/* END FILE UPLOAD - DROPZONE */
+

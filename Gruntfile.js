@@ -160,7 +160,8 @@ module.exports = function (grunt) {
                         'jquery': '../../<%= yeoman.app %>/bower_components/jquery/dist/jquery',
                         'underscore': '../../<%= yeoman.app %>/bower_components/lodash/dist/lodash',
                         'backbone': '../../<%= yeoman.app %>/bower_components/backbone/backbone',
-                        'select2': '../../<%= yeoman.app %>/bower_components/select2'
+                        'select2': '../../<%= yeoman.app %>/bower_components/select2/select2',
+                        'jquery-file-upload': '../../<%= yeoman.app %>/bower_components/jquery-file-upload/js/jquery.fileupload'
                     },
                     // TODO: Figure out how to make sourcemaps work with grunt-usemin
                     // https://github.com/yeoman/grunt-usemin/issues/30
