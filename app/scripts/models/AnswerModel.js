@@ -3,7 +3,10 @@
 define(function (require) {
     'use strict';
 
-    var Backbone = require('backbone');
+    var Backbone = require('backbone'),
+        CommentsCollection = require('collections/CommentsCollection'),
+        FileCollection = require('collections/FileCollection'),
+        CommentModel = require('models/CommentModel');
 
     var AnswerModel = Backbone.Model.extend({
         url: function() {
@@ -34,12 +37,12 @@ define(function (require) {
             comments: []
         },
 
-        validate: function(attrs, options) {
-        },
-
-        parse: function(response, options)  {
+        parse: function(response, options) {
+            response.comments = new CommentsCollection(response.comments);
+            response.files = new FileCollection(response.files);
             return response;
         }
+
     });
 
     return AnswerModel;
