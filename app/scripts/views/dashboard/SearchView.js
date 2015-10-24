@@ -4,18 +4,14 @@ define(function (require) {
     'use strict';
 
     var Backbone = require('backbone'),
-        JST = require('templates'),
-        AnswerModalView = require('views/modals/answers/AnswerModalView'),
-        AnswerFormView = require('views/modals/answers/AnswerFormView');
+        JST = require('templates');
 
     require('../../../bower_components/select2/select2');
 
     var SearchView = Backbone.View.extend({
         template: JST['app/scripts/templates/SearchView.ejs'],
 
-        events: {
-            'click #create-new-answer': '_createNewAnswer'
-        },
+        events: {},
 
         ui: {
             searchBox: undefined
@@ -31,17 +27,6 @@ define(function (require) {
             var data = this.ui.searchBox.select2('data')[0];
             this.ui.searchBox.select2('val', '');
             Backbone.history.navigate('/answer/' + data.id, true);
-        },
-
-        _createNewAnswer: function(e) {
-            e.preventDefault();
-
-            this.modal = new AnswerModalView({
-                bodyView: new AnswerFormView(),
-                title: 'Create a New Answer'
-            });
-
-            this.modal.show();
         },
 
         _format: function (object){

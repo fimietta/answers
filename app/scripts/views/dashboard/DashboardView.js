@@ -6,16 +6,16 @@ define(function (require) {
     var Backbone = require('backbone'),
         JST = require('templates'),
         ContentView = require('views/dashboard/ContentView'),
-        SearchView = require('views/dashboard/SearchView');
+        SearchView = require('views/dashboard/SearchView'),
+        MenuView = require('views/menu/MenuView');
 
     var DashboardView = Backbone.View.extend({
         template: JST['app/scripts/templates/DashboardView.ejs'],
 
-        events: {},
-
         childViews:  {
             contentRegion: undefined,
-            searchRegion: undefined
+            searchRegion: undefined,
+            menuRegion: undefined
         },
 
         initialize: function () {
@@ -30,6 +30,15 @@ define(function (require) {
         _setupRegions: function() {
             this._loadContentRegion();
             this._loadSearchRegion();
+            this._loadMenuRegion();
+        },
+
+        _loadMenuRegion: function() {
+            this.childViews.menuRegion = new MenuView({
+                el: '#menu-region'
+            });
+
+            this.childViews.menuRegion.render();
         },
 
         _loadContentRegion: function() {
