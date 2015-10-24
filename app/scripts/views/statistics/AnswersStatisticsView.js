@@ -5,8 +5,8 @@ define(function (require) {
 
     var Backbone = require('backbone'),
         JST = require('templates'),
-        MostSearchedAnswersView = require('views/MostSearchedAnswersView'),
-        NewestAnswersView = require('views/NewestAnswersView');
+        MostSearchedAnswersView = require('views/statistics/MostSearchedAnswersView'),
+        NewestAnswersView = require('views/statistics/NewestAnswersView');
 
     var AnswersStatisticView = Backbone.View.extend({
         template: JST['app/scripts/templates/AnswersStatisticsView.ejs'],

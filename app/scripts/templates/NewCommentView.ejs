@@ -1,0 +1,20 @@
+<form>
+    <div class="form-group">
+        <label for="comment-description">Description</label>
+        <textarea id="comment-description" class="form-control" rows="3"></textarea>
+    </div>
+
+    <form id="fileupload" method="post" action="/upload" enctype="multipart/form-data">
+        <div id="dropzone">
+            Drop Here
+
+            <a>Browse</a>
+            <input type="file" name="upl" multiple />
+        </div>
+
+        <ul>
+            <!-- The file uploads will be shown here -->
+        </ul>
+
+    </form>
+</form>

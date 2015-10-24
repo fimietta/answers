@@ -15,7 +15,7 @@ define(function (require) {
     require('jquery.fileupload-ui');
 
 
-    var NewAnswerView = Backbone.View.extend({
+    var AnswerFormView = Backbone.View.extend({
         tagName: 'div',
         template: JST['app/scripts/templates/NewAnswerView.ejs'],
 
@@ -162,5 +162,5 @@ define(function (require) {
         }
     });
 
-    return NewAnswerView;
+    return AnswerFormView;
 });

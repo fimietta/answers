@@ -5,8 +5,8 @@ define(function (require) {
 
     var Backbone = require('backbone'),
         JST = require('templates'),
-        ContentView = require('views/ContentView'),
-        AnswersSearchBoxView = require('views/AnswersSearchBoxView');
+        ContentView = require('views/dashboard/ContentView'),
+        SearchView = require('views/dashboard/SearchView');
 
     var DashboardView = Backbone.View.extend({
         template: JST['app/scripts/templates/DashboardView.ejs'],
@@ -41,7 +41,7 @@ define(function (require) {
         },
 
         _loadSearchRegion: function() {
-            this.childViews.searchRegion = new AnswersSearchBoxView({
+            this.childViews.searchRegion = new SearchView({
                 el: '#search-box-region'
             });
 

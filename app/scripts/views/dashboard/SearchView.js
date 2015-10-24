@@ -5,13 +5,13 @@ define(function (require) {
 
     var Backbone = require('backbone'),
         JST = require('templates'),
-        NewAnswerModalView = require('views/modals/newanswer/NewAnswerModalView'),
-        NewAnswerView = require('views/modals/newanswer/NewAnswerView');
+        AnswerModalView = require('views/modals/answers/AnswerModalView'),
+        AnswerFormView = require('views/modals/answers/AnswerFormView');
 
-    require('../../bower_components/select2/select2');
+    require('../../../bower_components/select2/select2');
 
-    var AnswersSearchBox = Backbone.View.extend({
-        template: JST['app/scripts/templates/AnswersSearchBoxView.ejs'],
+    var SearchView = Backbone.View.extend({
+        template: JST['app/scripts/templates/SearchView.ejs'],
 
         events: {
             'click #create-new-answer': '_createNewAnswer'
@@ -36,8 +36,8 @@ define(function (require) {
         _createNewAnswer: function(e) {
             e.preventDefault();
 
-            this.modal = new NewAnswerModalView({
-                bodyView: new NewAnswerView(),
+            this.modal = new AnswerModalView({
+                bodyView: new AnswerFormView(),
                 title: 'Create a New Answer'
             });
 
@@ -93,5 +93,5 @@ define(function (require) {
         }
     });
 
-    return AnswersSearchBox;
+    return SearchView;
 });

@@ -5,7 +5,7 @@ define(function (require) {
 
     var Backbone = require('backbone'),
         JST = require('templates'),
-        AnswersStatisticsView = require('views/AnswersStatisticsView'),
+        AnswersStatisticsView = require('views/statistics/AnswersStatisticsView'),
         AnswerDetailView = require('views/AnswerDetailView');
 
     var ContentView = Backbone.View.extend({

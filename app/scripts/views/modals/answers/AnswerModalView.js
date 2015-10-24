@@ -1,10 +1,10 @@
 define(function (require) {
     var BaseModalView = require('views/modals/BaseModalView'),
-        SavedAnswerSuccessView = require('views/modals/newanswer/SavedAnswerSuccessView');
+        SavedAnswerSuccessView = require('views/modals/answers/SavedAnswerSuccessView');
 
     require('bootstrap');
 
-    var NewAnswerModalView = BaseModalView.extend({
+    var AnswerModalView = BaseModalView.extend({
 
         id: 'base-modal',
         className: 'modal fade',
@@ -61,5 +61,5 @@ define(function (require) {
         }
     });
 
-    return NewAnswerModalView;
+    return AnswerModalView;
 });

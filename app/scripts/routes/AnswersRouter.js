@@ -3,7 +3,7 @@
 define(function (require) {
     'use strict';
 
-    var DashboardView = require('views/DashboardView'),
+    var DashboardView = require('views/dashboard/DashboardView'),
         AnswerModel = require('models/AnswerModel');
 
     var AnswersRouter = Backbone.Router.extend({
