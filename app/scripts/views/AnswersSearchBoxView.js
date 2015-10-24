@@ -5,8 +5,8 @@ define(function (require) {
 
     var Backbone = require('backbone'),
         JST = require('templates'),
-        BaseModalView = require('views/modals/BaseModalView'),
-        NewAnswerView = require('views/NewAnswerView');
+        NewAnswerModalView = require('views/modals/newanswer/NewAnswerModalView'),
+        NewAnswerView = require('views/modals/newanswer/NewAnswerView');
 
     require('../../bower_components/select2/select2');
 
@@ -36,8 +36,9 @@ define(function (require) {
         _createNewAnswer: function(e) {
             e.preventDefault();
 
-            this.modal = new BaseModalView({
-                bodyView: new NewAnswerView()
+            this.modal = new NewAnswerModalView({
+                bodyView: new NewAnswerView(),
+                title: 'Create a New Answer'
             });
 
             this.modal.show();

@@ -20,7 +20,7 @@ define(function (require) {
         sync: function (method, model, options) {
             options = options || {};
             if(method === 'create') {
-                options.url = 'http://answers.getsandbox.com/answers/new';
+                options.url = 'http://answers.getsandbox.com/answers';
             }
 
             return Backbone.sync.call(this, method, model, options);

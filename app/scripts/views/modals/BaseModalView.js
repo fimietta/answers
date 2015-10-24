@@ -12,46 +12,52 @@ define(function (require) {
 
 
         events: {
-            'hidden.bs.modal': 'teardown',
+            'hidden.bs.modal': 'hide',
             'click #save-button': 'onSave'
         },
 
-        bodyView: undefined,
-
         initialize: function (options) {
-            this.bodyView = options.bodyView;
-            _.bindAll(this, 'show', 'teardown', 'render');
-            this.render();
+            _.bindAll(this, 'show', 'hide', 'render');
+            this.title = options.title || '';
+            this._loadTemplate();
         },
 
-        show: function () {
-            this.$el.modal('show');
-        },
-
-        teardown: function () {
-            this.$el.data('modal', null);
-            this.remove();
-        },
-
-        onSave: function() {
-            this.bodyView
-                .saveData()
-                .then(function() {
-                    console.log('Answer Saved');
-                })
-                .fail(function() {
-                    console.log('Error in saving the answer');
-                });
-        },
-
-        render: function () {
+        _loadTemplate: function() {
             this.$el.html(this.template());
-            this.bodyView.render();
-            this.$el.find('.modal-body').append(this.bodyView.el);
-
+            this.setTitle(this.title);
             this.$el.modal({show: false});
+        },
+
+        show: function (options) {
+            this.$el.modal('show');
+
+            if(options && options.hideFooter) {
+                this.hideModalFooter();
+            }
+        },
+
+        hide: function () {
+            this.$el.modal('hide');
+        },
+
+        setTitle: function(title) {
+            this.$el.find('.modal-title').html(title);
+        },
+
+        hideModalFooter: function() {
+            this.$el.find('.modal-footer').hide();
+        },
+
+        showModalFooter: function() {
+            this.$el.find('.modal-footer').show();
         }
     });
+
+    BaseModalView.extend = function(child) {
+        var view = Backbone.View.extend.apply(this, arguments);
+        view.prototype.events = _.extend({}, this.prototype.events, child.events);
+        return view;
+    };
 
     return BaseModalView;
 });
