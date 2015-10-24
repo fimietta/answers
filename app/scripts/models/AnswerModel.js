@@ -17,6 +17,16 @@ define(function (require) {
 
         },
 
+        defaults: {
+            'title': undefined,
+            'description': undefined,
+            'uri': undefined,
+            'createdAt': undefined,
+            'createdBy': undefined,
+            files: new FileCollection(),
+            comments: new CommentsCollection()
+        },
+
         sync: function (method, model, options) {
             options = options || {};
             if(method === 'create') {
@@ -24,17 +34,6 @@ define(function (require) {
             }
 
             return Backbone.sync.call(this, method, model, options);
-        },
-
-
-        defaults: {
-            'title': undefined,
-            'description': undefined,
-            'uri': undefined,
-            'createdAt': undefined,
-            'createdBy': undefined,
-            files: [],
-            comments: []
         },
 
         parse: function(response, options) {

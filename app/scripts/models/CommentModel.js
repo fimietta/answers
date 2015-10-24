@@ -3,7 +3,8 @@
 define(function (require) {
     'use strict';
 
-    var Backbone = require('backbone');
+    var Backbone = require('backbone'),
+        FileCollection = require('collections/FileCollection');
 
     var CommentModel = Backbone.Model.extend({
 
@@ -12,10 +13,11 @@ define(function (require) {
         },
 
         defaults: {
+            id: undefined,
             text: undefined,
             createdBy: undefined,
             createdAt: undefined,
-            files: []
+            files: new FileCollection()
         }
     });
 

@@ -6,14 +6,18 @@ define(function (require) {
     var Backbone = require('backbone'),
         JST = require('templates'),
         _ = require('underscore'),
-        CommentsView = require('views/CommentsView');
+        CommentsView = require('views/comments/CommentsView'),
+        CommentModalView = require('views/modals/comments/CommentModalView'),
+        CommentFormView = require('views/modals/comments/CommentFormView');
 
     var AnswerDetailView = Backbone.View.extend({
         template: JST['app/scripts/templates/AnswerDetailView.ejs'],
 
         className: 'answer-item-view',
 
-        events: {},
+        events: {
+            'click #add-comment': '_openNewCommentModal'
+        },
 
         childView: undefined,
 
@@ -21,8 +25,19 @@ define(function (require) {
             this.model.fetch().done(_.bind(function() {
                 this.render()
             }, this));
+        },
 
-            this.listenTo(this.model, 'change', this.render);
+        _openNewCommentModal: function(e) {
+            e.preventDefault();
+
+            this.modal = new CommentModalView({
+                bodyView: new CommentFormView({
+                    answerModel: this.model
+                }),
+                title: 'Add new comment'
+            });
+
+            this.modal.show();
         },
 
         _setupCommentsView: function() {
@@ -37,6 +52,8 @@ define(function (require) {
         render: function () {
             this.$el.html(this.template(this.model.toJSON()));
             this._setupCommentsView();
+
+
         },
 
         close: function() {

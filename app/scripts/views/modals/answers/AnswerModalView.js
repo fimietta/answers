@@ -1,6 +1,7 @@
 define(function (require) {
     var BaseModalView = require('views/modals/BaseModalView'),
-        SavedAnswerSuccessView = require('views/modals/answers/SavedAnswerSuccessView');
+        SavedAnswerSuccessView = require('views/modals/answers/SavedAnswerSuccessView'),
+        AnswerModel = require('models/AnswerModel');
 
     require('bootstrap');
 
@@ -38,11 +39,12 @@ define(function (require) {
             this.$el.find('.modal-body').append(this.bodyView.el);
         },
 
-        onSave: function() {
+        onSave: function(e) {
+            e.preventDefault();
+
             this.bodyView
                 .saveData()
                 .then(_.bind(function(data) {
-                    console.log(data);
                     this._loadNextStep(data);
                 }, this))
                 .fail(function() {
