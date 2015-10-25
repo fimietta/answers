@@ -140,3 +140,43 @@ body {
     display:inline-block;
     background: #F5F4F4;
 }
+.answer-item-view {
+    margin-top: 16px;
+    .title {
+        padding-left: 32px;
+        padding-right: 32px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+
+        border: 1px solid #9A9191;
+    }
+
+    .created-by {
+        text-align: right;
+        font-weight: bold;
+    }
+    .description {
+        background: #F5F4F4;
+        padding: 32px;
+
+        p {
+            font-style: italic;
+        }
+    }
+}
+
+.comment-item-view {
+    margin-top: 32px;
+    .description {
+        background: #ffffff;
+        border: 1px solid #F5F4F4;
+    }
+}
+
+.truncate {
+    width: 250px;
+    height: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
