@@ -1,7 +1,9 @@
 {
   "name": "answers",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+      "bower": "1.6.4"
+  },
   "devDependencies": {
     "apache-server-configs": "^2.8.0",
     "grunt": "^0.4.5",
