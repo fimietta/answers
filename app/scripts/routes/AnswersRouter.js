@@ -8,6 +8,7 @@ define(function (require) {
 
     var AnswersRouter = Backbone.Router.extend({
         routes: {
+            'answers': 'showAllAnswers',
             'answer/:id': 'openAnswer',
             '': 'openDashboard'
         },
@@ -24,7 +25,11 @@ define(function (require) {
                 id: id
             });
 
-            this.dashboard.childViews.contentRegion.loadAnswerDetailView(model);
+            this.dashboard.openAnswer(model);
+        },
+
+        showAllAnswers: function() {
+            this.dashboard.showAnswersTable();
         },
 
         openDashboard: function() {

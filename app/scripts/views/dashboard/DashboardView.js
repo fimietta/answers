@@ -35,7 +35,8 @@ define(function (require) {
 
         _loadMenuRegion: function() {
             this.childViews.menuRegion = new MenuView({
-                el: '#menu-region'
+                el: '#menu-region',
+                dashboard: this
             });
 
             this.childViews.menuRegion.render();
@@ -55,6 +56,14 @@ define(function (require) {
             });
 
             this.childViews.searchRegion.render();
+        },
+
+        openAnswer: function(model) {
+            this.childViews.contentRegion.loadAnswerDetailView(model)
+        },
+
+        showAnswersTable: function() {
+            this.childViews.contentRegion.loadAllAnswersView();
         }
 
     });

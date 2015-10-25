@@ -6,7 +6,8 @@ define(function (require) {
     var Backbone = require('backbone'),
         JST = require('templates'),
         AnswersStatisticsView = require('views/statistics/AnswersStatisticsView'),
-        AnswerDetailView = require('views/AnswerDetailView');
+        AnswerDetailView = require('views/AnswerDetailView'),
+        AnswersTableView = require('views/AnswersTableView');
 
     var ContentView = Backbone.View.extend({
         template: JST['app/scripts/templates/ContentView.ejs'],
@@ -21,11 +22,22 @@ define(function (require) {
             this.loadStatisticsView();
         },
 
+        loadAllAnswersView: function() {
+            this._cleanChildView();
+
+            this.childView = new AnswersTableView();
+            this.render();
+        },
+
         loadStatisticsView: function() {
+            this._cleanChildView();
+
             this.childView = new AnswersStatisticsView();
         },
 
         loadAnswerDetailView: function(model) {
+            this._cleanChildView();
+
             this.childView = new AnswerDetailView({
                 model: model
             });
@@ -38,8 +50,14 @@ define(function (require) {
             this.childView.render();
         },
 
+        _cleanChildView: function() {
+            if(this.childView) {
+                this.childView.remove();
+            }
+        },
+
         close: function() {
-            this.childView.remove();
+            this._cleanChildView();
             this.remove();
         }
 

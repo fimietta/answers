@@ -29,7 +29,8 @@ require.config({
         'load-image-ios': '../bower_components/blueimp-load-image/js/load-image-ios',
         'canvas-to-blob': '../bower_components/blueimp-canvas-to-blob/js/canvas-to-blob',
         'tmpl': '../bower_components/blueimp-tmpl/js/tmpl',
-        'select2': '../bower_components/select2/select2'
+        'select2': '../bower_components/select2/select2',
+        'datatables': '../bower_components/datatables/media/js/jquery.dataTables'
     }
 });
 

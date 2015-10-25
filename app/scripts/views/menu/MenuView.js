@@ -14,8 +14,7 @@ define(function (require) {
         className: 'answer-item-view',
 
         events: {
-            'click #create-new-answer': '_createNewAnswer',
-            'click #show-all': '_showAllAnswers'
+            'click #create-new-answer': '_createNewAnswer'
         },
 
         initialize: function () {
@@ -35,11 +34,6 @@ define(function (require) {
             });
 
             this.modal.show();
-        },
-
-        _showAllAnswers: function(e) {
-            e.preventDefault();
-
         }
     });
 
