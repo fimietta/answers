@@ -30,7 +30,7 @@ define(function (require) {
         },
 
         _format: function (object){
-            return object.title;
+            return "<div class='search-result'><em>" + object.title + '</em></br>' + object.description.substring(0,128).concat('...') + '</div>';
         },
 
         _setupSearchboxPlugin: function() {

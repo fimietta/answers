@@ -17,7 +17,7 @@ define(function (require) {
 
     var CommentFormView = Backbone.View.extend({
         tagName: 'div',
-        template: JST['app/scripts/templates/NewCommentView.ejs'],
+        template: JST['app/scripts/templates/CommentFormView.ejs'],
 
         events: {},
 
@@ -36,16 +36,15 @@ define(function (require) {
             this.$el.html(this.template());
             this.ui.description = this.$el.find('#comment-description');
             this.ui.fileUploadInput = this.$el.find('#fileupload');
-            this.ui.dropzone = this.$el.find('#dropzone');
 
-            this._simpleFileUpload();
+            this._setupFileUpload();
         },
 
         getData: function() {
             return {
                 text: this.ui.description.val(),
                 createdBy: 'John Smith',
-                createAt: new Date()
+                createdAt: new Date()
             }
         },
 
@@ -55,12 +54,9 @@ define(function (require) {
             return this.answerModel.save();
         },
 
-        _simpleFileUpload: function() {
+        _setupFileUpload: function() {
             this.ui.fileUploadInput.fileupload({
-                dataType:'json',
-                add : this.addFile,
-                fail: this.addFileFail
-
+                dataType:'json'
             });
         }
 

@@ -34,7 +34,7 @@ define(function (require) {
 
         _showAnswer: function(e) {
             e.preventDefault();
-            this.parentView.teardown();
+            this.parentView.hide();
             Backbone.history.navigate('/answer/' + this.answerId, true);
         },
 

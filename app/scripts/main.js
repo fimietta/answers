@@ -43,6 +43,9 @@ require([
         Routers: {},
         Collections: {},
         Views: {},
+        user: {
+            name: 'Daniela Remogna'
+        },
         init: function() {
             this.Routers.answersRouter = new AnswersRouter();
             Backbone.history.start();
