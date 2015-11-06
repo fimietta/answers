@@ -4,7 +4,8 @@ define(function (require) {
     'use strict';
 
     var Backbone = require('backbone'),
-        JST = require('templates');
+        JST = require('templates'),
+        _ = require('underscore');
 
     require('../../../bower_components/select2/select2');
 
@@ -71,10 +72,11 @@ define(function (require) {
 
         },
 
+
         render: function () {
             this.$el.html(this.template());
             this.ui.searchBox = this.$el.find('#searchbox');
-            this._setupSearchboxPlugin();
+            _.defer(_.bind(this._setupSearchboxPlugin, this),500);
         }
     });
 
