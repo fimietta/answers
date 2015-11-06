@@ -3,10 +3,10 @@
 define(function (require) {
     'use strict';
 
-    var DashboardView = require('views/DashboardView'),
-        MostSearchedAnswersView = require('views/MostSearchedAnswersView'),
-        AnswersSearchBoxView = require('views/AnswersSearchBoxView'),
-        ContentView = require('views/ContentView');
+    var DashboardView = require('dashboard/views/DashboardView'),
+        MostSearchedAnswersView = require('statistics/views/MostSearchedAnswersView'),
+        AnswersSearchBoxView = require('dashboard/views/SearchView'),
+        ContentView = require('dashboard/views/ContentView');
 
     describe('DashboardView Test', function () {
 

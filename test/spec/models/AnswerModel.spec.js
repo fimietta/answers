@@ -3,7 +3,7 @@
 define(function (require) {
     'use strict';
 
-    var AnswerModel = require('models/AnswerModel');
+    var AnswerModel = require('answers/models/AnswerModel');
 
     describe('AnswerModelTest', function () {
         describe('Initialize', function () {

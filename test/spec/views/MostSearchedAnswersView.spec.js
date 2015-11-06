@@ -3,9 +3,9 @@
 define(function (require) {
     'use strict';
 
-    var MostSearchedAnswersView = require('views/MostSearchedAnswersView'),
-        MostSearchedAnswersCollection = require('collections/MostSearchedAnswersCollection'),
-        AnswerModel = require('models/AnswerModel');
+    var MostSearchedAnswersView = require('statistics/views/MostSearchedAnswersView'),
+        MostSearchedAnswersCollection = require('statistics/collections/MostSearchedAnswersCollection'),
+        AnswerModel = require('answers/models/AnswerModel');
 
     describe('MostSearchedAnswersView Test', function () {
 

@@ -3,7 +3,7 @@
 define(function (require) {
     'use strict';
 
-    var AnswersCollection = require('collections/AnswersCollection');
+    var AnswersCollection = require('answers/collections/AnswersCollection');
 
     describe('Answers Collection Test', function () {
         describe('Initialize', function () {

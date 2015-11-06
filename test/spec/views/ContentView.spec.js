@@ -3,8 +3,8 @@
 define(function (require) {
     'use strict';
 
-    var ContentView = require('views/ContentView'),
-        AnswersStatisticView = require('views/AnswersStatisticsView');
+    var ContentView = require('dashboard/views/ContentView'),
+        AnswersStatisticView = require('statistics/views/AnswersStatisticsView');
 
     describe('ContentView Test', function () {
 

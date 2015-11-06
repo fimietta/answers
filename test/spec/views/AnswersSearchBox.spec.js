@@ -3,7 +3,7 @@
 define(function (require) {
     'use strict';
 
-    var AnswersSearchBoxView = require('views/AnswersSearchBoxView');
+    var AnswersSearchBoxView = require('dashboard/views/SearchView');
 
     describe('AnswersSearchBoxView Test', function () {
 
